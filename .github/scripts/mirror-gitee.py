@@ -44,11 +44,13 @@ with tempfile.TemporaryDirectory() as directory:
     except urllib.error.HTTPError as error:
         if error.code != 404:
             raise
+        release = None
+    if release is None:
         payload = json.dumps({'tag_name': tag, 'name': 'ZMark ' + tag, 'body': 'ZMark release downloads mirrored from GitHub.', 'target_commitish': 'master'}).encode()
         release = api('/releases', payload, 'POST', 'application/json')
     for name, data in files.items():
         expected_url = f'https://gitee.com/zeng_sc/zmark-releases/releases/download/{tag}/{name}'
-        existing = next((asset for asset in release.get('assets', []) if asset.get('name') == name), None)
+        existing = next((asset for asset in (release.get('assets') or []) if asset.get('name') == name), None)
         if existing:
             if existing.get('browser_download_url') != expected_url:
                 raise SystemExit(f'Unexpected mirror URL for {name}')
