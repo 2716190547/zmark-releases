@@ -1,0 +1,26 @@
+name: Mirror releases to Gitee
+
+on:
+  release:
+    types: [published]
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitee-release-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror latest published release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITEE_TOKEN: ${{ secrets.GITEE_RELEASE_TOKEN }}
+        run: python3 .github/scripts/mirror-gitee.py
