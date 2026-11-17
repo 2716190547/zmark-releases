@@ -57,13 +57,7 @@ tag = source_release['tagName']
 if not re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+', tag):
     raise SystemExit(f'Unsupported release tag: {tag}')
 version = tag[1:]
-names = [
-    f'ZMark-{version}.zip', f'ZMark-{version}-setup.exe',
-    'latest.json', 'latest-windows.json',
-    f'ZMark-{version}.dmg', f'ZMark-{version}.dmg.sha256',
-    f'ZMark-{version}-linux-x86_64.deb', f'ZMark-{version}-linux-x86_64.tar.gz',
-    'SHA256SUMS-linux',
-]
+names = [f'ZMark-{version}.zip', f'ZMark-{version}-setup.exe', 'latest.json', 'latest-windows.json']
 with tempfile.TemporaryDirectory() as directory:
     args = ['gh', 'release', 'download', tag, '--repo', SOURCE, '--dir', directory]
     for name in names:

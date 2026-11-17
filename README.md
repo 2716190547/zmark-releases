@@ -12,7 +12,7 @@ ZMark is a desktop Markdown editor and reader for local files, with source editi
 
 **Current version: 0.2.9** · [Release notes](https://github.com/2716190547/zmark/blob/dev/docs/releases/v0.2.9.md) · [0.2.9 source `033fb5d`](https://github.com/2716190547/zmark/tree/033fb5d7ca478afc06c15d902a7a516d7336e813)
 
-Download from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9). The [Gitee mirror](https://gitee.com/zeng_sc/zmark-releases/releases) may update later.
+Download from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9). The [Gitee mirror](https://gitee.com/zeng_sc/zmark-releases/releases) provides the macOS ZIP, Windows installer, and signed update feeds. Download DMG and Linux packages from GitHub.
 
 | Platform | Package | Install |
 | --- | --- | --- |
