@@ -8,7 +8,6 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
-import uuid
 
 SOURCE = '2716190547/zmark-releases'
 TARGET = 'https://gitee.com/api/v5/repos/zeng_sc/zmark-releases'
@@ -23,6 +22,18 @@ def api(path, data=None, method=None, content_type=None):
     request = urllib.request.Request(TARGET + path, data=data, headers=headers, method=method)
     with urllib.request.urlopen(request, timeout=120) as response:
         return json.load(response)
+
+
+
+def upload_asset(release_id, path):
+    config = ''.join(f'header = {json.dumps(f"{name}: {value}")}\n' for name, value in HEADERS.items())
+    result = subprocess.run([
+        'curl', '--silent', '--show-error', '--fail-with-body',
+        '--connect-timeout', '20', '--max-time', '120', '--config', '-',
+        '--form', f'file=@{path};type=application/octet-stream',
+        f'{TARGET}/releases/{release_id}/attach_files',
+    ], input=config, text=True, capture_output=True, check=True)
+    return json.loads(result.stdout)
 
 
 def digest(data):
@@ -73,16 +84,13 @@ with tempfile.TemporaryDirectory() as directory:
         if verified_asset(release, name, expected_url, data):
             print(f'Verified {name}')
             continue
-        boundary = 'zmark' + uuid.uuid4().hex
-        prefix = f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="{name}"\r\nContent-Type: application/octet-stream\r\n\r\n'.encode()
-        body = prefix + data + f'\r\n--{boundary}--\r\n'.encode()
         for attempt in range(3):
             try:
-                asset = api(f'/releases/{release["id"]}/attach_files', body, 'POST', f'multipart/form-data; boundary={boundary}')
+                asset = upload_asset(release['id'], pathlib.Path(directory) / name)
                 if asset.get('browser_download_url') != expected_url:
                     raise SystemExit(f'Unexpected uploaded URL for {name}')
                 break
-            except (urllib.error.URLError, TimeoutError) as error:
+            except (urllib.error.URLError, TimeoutError, subprocess.CalledProcessError) as error:
                 release = api('/releases/tags/' + tag)
                 if verified_asset(release, name, expected_url, data):
                     break
