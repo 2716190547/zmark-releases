@@ -41,11 +41,18 @@ def verified_asset(release, name, url, data):
     return True
 
 
-tag = json.loads(subprocess.check_output(['gh', 'release', 'view', '--repo', SOURCE, '--json', 'tagName']))['tagName']
+source_release = json.loads(subprocess.check_output(['gh', 'release', 'view', '--repo', SOURCE, '--json', 'tagName,body']))
+tag = source_release['tagName']
 if not re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+', tag):
     raise SystemExit(f'Unsupported release tag: {tag}')
 version = tag[1:]
-names = [f'ZMark-{version}.zip', f'ZMark-{version}-setup.exe', 'latest.json', 'latest-windows.json']
+names = [
+    f'ZMark-{version}.zip', f'ZMark-{version}-setup.exe',
+    'latest.json', 'latest-windows.json',
+    f'ZMark-{version}.dmg', f'ZMark-{version}.dmg.sha256',
+    f'ZMark-{version}-linux-x86_64.deb', f'ZMark-{version}-linux-x86_64.tar.gz',
+    'SHA256SUMS-linux',
+]
 with tempfile.TemporaryDirectory() as directory:
     args = ['gh', 'release', 'download', tag, '--repo', SOURCE, '--dir', directory]
     for name in names:
@@ -59,7 +66,7 @@ with tempfile.TemporaryDirectory() as directory:
             raise
         release = None
     if release is None:
-        payload = json.dumps({'tag_name': tag, 'name': 'ZMark ' + tag, 'body': 'ZMark release downloads mirrored from GitHub.', 'target_commitish': 'master'}).encode()
+        payload = json.dumps({'tag_name': tag, 'name': 'ZMark ' + tag, 'body': source_release.get('body') or 'ZMark release downloads mirrored from GitHub.', 'target_commitish': 'master'}).encode()
         release = api('/releases', payload, 'POST', 'application/json')
     for name, data in files.items():
         expected_url = f'https://gitee.com/zeng_sc/zmark-releases/releases/download/{tag}/{name}'
