@@ -4,11 +4,13 @@
 
 [English](README.md)
 
+[源码与问题反馈](https://github.com/2716190547/zmark) · [安装包与签名更新](https://github.com/2716190547/zmark-releases)
+
 ZMark 是一款面向本地文件的桌面 Markdown 编辑器与阅读器，也支持常见代码与文本文件的源码编辑。可以编辑源码、阅读排版预览，或在分屏中同时使用两者；通过侧栏整理文件夹，文档保存在你选择的位置。
 
 ## 下载与安装
 
-**当前版本：0.2.9** · [版本更新说明](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9)
+**当前版本：0.2.9** · [版本更新说明](https://github.com/2716190547/zmark/blob/dev/docs/releases/v0.2.9.md) · [本版源码 `033fb5d`](https://github.com/2716190547/zmark/tree/033fb5d7ca478afc06c15d902a7a516d7336e813)
 
 从 [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9) 下载。[Gitee 发行镜像](https://gitee.com/zeng_sc/zmark-releases/releases) 可能稍后同步。
 
@@ -91,4 +93,4 @@ Mermaid 语法支持范围取决于渲染器；如果图表无法显示，可以
 
 ## 技术栈
 
-ZMark 使用 **Rust** 和 **GPUI** 构建桌面应用，使用 **pulldown-cmark** 解析 Markdown、**syntect** 实现代码高亮，并用 **rusty-mermaid** 渲染图表。本地图片由 Rust 的 `image` 库解码，macOS 大尺寸不透明 PNG/JPEG 预览使用原生 ImageIO 缩略解码。预览图表按实际显示尺寸栅格化，不再使用的纹理及时释放。测量与剩余限制见[版本更新说明](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9)；占用会随文档、媒体和窗口尺寸变化。
+ZMark 使用 **Rust** 和 **GPUI** 构建桌面应用，使用 **pulldown-cmark** 解析 Markdown、**syntect** 实现代码高亮，并用 **rusty-mermaid** 渲染图表。本地图片由 Rust 的 `image` 库解码，macOS 大尺寸不透明 PNG/JPEG 预览使用原生 ImageIO 缩略解码。预览图表按实际显示尺寸栅格化，不再使用的纹理及时释放。测量与剩余限制见[内存分析报告](https://github.com/2716190547/zmark/blob/dev/docs/plans/theme-selection-and-memory-audit.md)；占用会随文档、媒体和窗口尺寸变化。
