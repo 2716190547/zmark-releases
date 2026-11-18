@@ -1,96 +1,44 @@
-# ZMark
+<div align="center">
 
-<img src="assets/icon.iconset/icon_256x256.png" alt="ZMark icon" width="128">
+<img src="assets/macos-icon.png" alt="ZMark Logo" width="112" height="112" />
 
-[简体中文](README.zh-CN.md)
+# ZMark Releases
 
-[Source code and issues](https://github.com/2716190547/zmark) · [Installers and signed updates](https://github.com/2716190547/zmark-releases)
+**Official installers and signed auto-update feeds for [ZMark](https://github.com/2716190547/zmark) — a fast, native local-first Markdown editor, reader, and Mermaid diagram workspace built with Rust & GPUI.**
 
-ZMark is a desktop Markdown editor and reader for local files, with source editing for common code and text files. Write in source mode, read a formatted preview, or work in both views side by side. Organize folders in the sidebar and keep your documents where you choose.
+[![Release](https://img.shields.io/github/v/release/2716190547/zmark-releases?label=Latest%20Release&color=E06C44&style=flat-square)](https://github.com/2716190547/zmark-releases/releases)
+[![Source Repo](https://img.shields.io/badge/Source-2716190547%2Fzmark-2563EB?style=flat-square)](https://github.com/2716190547/zmark)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-4B5563?style=flat-square)](#download-and-install)
 
-## Download and install
+[English](README.md) · [简体中文](README.zh-CN.md) · [Source Repository](https://github.com/2716190547/zmark) · [Gitee Mirror](https://gitee.com/zeng_sc/zmark-releases/releases)
 
-**Current version: 0.2.9** · [Release notes](https://github.com/2716190547/zmark/blob/dev/docs/releases/v0.2.9.md) · [0.2.9 source `033fb5d`](https://github.com/2716190547/zmark/tree/033fb5d7ca478afc06c15d902a7a516d7336e813)
+</div>
 
-Download from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.9). The [Gitee mirror](https://gitee.com/zeng_sc/zmark-releases/releases) provides the macOS ZIP, Windows installer, and signed update feeds. Download DMG and Linux packages from GitHub.
+---
 
-| Platform | Package | Install |
-| --- | --- | --- |
-| macOS (Apple Silicon) | ZIP / DMG | Move `ZMark.app` to Applications. |
-| Windows x86_64 | Setup EXE | Run the installer. |
-| Linux x86_64 | DEB / tar.gz | Install the DEB or extract the tarball and run `usr/bin/zmark_app`. |
+## Download and Install
 
-The macOS app is Ad-Hoc signed and is not notarized by Apple. The Windows installer has no publisher code signature. Platform-specific behavior may differ.
+**Current release: `v0.2.10`** · [Release Notes](https://github.com/2716190547/zmark/blob/master/docs/releases/v0.2.10.md) · [Tagged Source `309d05e`](https://github.com/2716190547/zmark/tree/309d05eb6b934c0d94430d40ca42f71525a798c3)
 
-## Get started
+Download installers directly from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.10). Users in mainland China can also download the macOS ZIP, Windows installer, and signed update manifests via the [Gitee Mirror](https://gitee.com/zeng_sc/zmark-releases/releases) (DMG and Linux packages are hosted on GitHub).
 
-1. Open a Markdown or supported text file with **Cmd+O** on macOS or **Ctrl+O** on Windows and Linux. You can also start by editing the welcome draft.
-2. Choose **Source**, **Split**, or **Preview** in the toolbar. In split view, the two panes scroll together.
-3. Open the sidebar with **Cmd+B** or **Ctrl+B**. Drop files or folders into the window to add them to the sidebar. Filter by name, or use a Markdown document’s outline to jump to a heading.
-4. Save with **Cmd+S** or **Ctrl+S**. Choose a location the first time you save a draft. Double-click the document title to rename it.
-5. Open settings with **Cmd+,** or **Ctrl+,** to adjust appearance, editing, saving, and language.
+| Platform | Architecture | Package | Install Instructions |
+| --- | --- | --- | --- |
+| **macOS** | Apple Silicon (`arm64`) | `.zip` / `.dmg` | Extract or mount and drag `ZMark.app` into `/Applications`. |
+| **Windows** | `x86_64` | Setup `.exe` | Run the installer wizard. |
+| **Linux** | `x86_64` | `.deb` / `.tar.gz` | Install via `apt` / `dpkg`, or extract and run `usr/bin/zmark_app`. |
 
-## Working with documents
+> [!NOTE]
+> The macOS bundle is Ad-Hoc signed (not Apple-notarized), and the Windows installer has no publisher code signature. Native local image previews do not fetch remote HTTP/HTTPS URLs; reference images locally relative to your Markdown file or via an absolute disk path. Exported HTML embeds typography CSS while keeping image paths as references and Mermaid blocks as fenced code.
 
-### Files and folders
+---
 
-The sidebar groups workspace folders, files opened outside those folders, and drafts. Add folders using the toolbar or drag files and folders from your desktop. Supported files include Markdown, plain text, Rust, Python, JavaScript/TypeScript, C/C++, Java, Go, HTML/CSS, JSON, YAML, TOML, shell scripts, and more. Non-Markdown files open in source mode with language highlighting.
+## Key Capabilities & Shortcuts
 
-Click a folder row to expand or collapse it; double-click its name to rename. Hold **Shift** for a range, or **Cmd** on macOS / **Ctrl** elsewhere to add or remove individual selections. Use the batch controls in the top-right corner and press **Esc** to leave multiselection. **Remove** hides sidebar items without deleting files; the undo control remains available for five seconds. **Delete** moves items to the system trash and is available through the context menu or batch toolbar.
+- **Writing & Sync Scroll**: Switch seamlessly between **Source** (`Cmd+1` / `Ctrl+1`), **Split** (`Cmd+2` / `Ctrl+2`), and **Preview** (`Cmd+3` / `Ctrl+3`), with block-aligned smooth synchronized scrolling and hover scrollbars.
+- **Workspace & Document Outline**: Open the sidebar with `Cmd+Shift+B` / `Ctrl+Shift+B` and toggle **Files ↔ Outline** with `Cmd+Shift+O` / `Ctrl+Shift+O`. Drop folders or Markdown files directly into the window, search by filename, undo sidebar removals (`Cmd+Option+Z` / `Ctrl+Alt+Z`), or double-click names to rename inline.
+- **Markdown, Diagrams & Media**: Adaptive GFM tables, interactive task lists, multi-language code syntax highlighting with one-click copy, native local `rusty-mermaid` SVG diagrams, local image previews (PNG/JPEG/GIF/WebP/SVG), and interactive HiDPI Lightbox zoom.
+- **Themes & Customizable Shortcuts**: Press `Cmd+,` / `Ctrl+,` for Settings — 7 light/dark palettes, a 19-token Custom Theme Editor, 10 UI languages, and customizable keyboard shortcuts (`Backspace` to unbind, live conflict detection).
+- **Standalone HTML Export**: Export clean formatted HTML with `Cmd+Shift+E` / `Ctrl+Shift+E`.
 
-The sidebar search filters **names**. To search the active document’s contents, click the toolbar search icon or press **Cmd+F** / **Ctrl+F**. Click a result to jump to it. Use **Enter / Shift+Enter** or **F3 / Shift+F3** for the next or previous match; the find input also supports the arrow keys. The outline lists Markdown headings.
-
-Existing files can be saved automatically after editing or when the window loses focus; both behaviors can be configured in settings. A new draft needs a save location before it becomes a file. Unsaved changes are confirmed when closing.
-
-### Markdown and diagrams
-
-The preview supports headings, paragraphs, emphasis, links, lists, task-list markers, tables, quotes, code blocks, local images, and Mermaid diagrams. Fenced code blocks can show syntax highlighting and a copy control. Change a task marker in the source to update its preview.
-
-Use a local path for images, relative to the saved Markdown file or as an absolute path. Network image URLs are not loaded in the preview. Click an image or use a diagram's expand control to inspect it at a larger size.
-
-For example, edit this in split view:
-
-````markdown
-# Project notes
-
-- [ ] Review the first draft
-- [x] Create a document
-
-| Item | Status |
-| --- | --- |
-| Preview | Ready |
-
-```mermaid
-flowchart LR
-    Write --> Preview --> Share
-```
-````
-
-Mermaid syntax support depends on the renderer; if a diagram does not render, check its syntax and simplify the example.
-
-### Export HTML
-
-Choose **Export HTML** in the toolbar or use **Cmd+Shift+E** / **Ctrl+Shift+E**, then choose a destination. The exported HTML includes its styles. Image paths remain references rather than being embedded, and Mermaid blocks are exported as code rather than rendered diagrams; keep referenced images available when sharing the file.
-
-### Appearance and editing
-
-Settings provide light, dark, and system appearance; color palettes; language; reduced motion; line numbers; indentation; line height; and automatic-save options. The application also shows its version and update status in **About**.
-
-## Keyboard shortcuts
-
-| Action | macOS | Windows / Linux |
-| --- | --- | --- |
-| Open file | Cmd+O | Ctrl+O |
-| Save | Cmd+S | Ctrl+S |
-| Find in document | Cmd+F | Ctrl+F |
-| Next / previous match | F3 / Shift+F3 | F3 / Shift+F3 |
-| Undo sidebar removal (within 5 seconds) | Cmd+Option+Z | Ctrl+Alt+Z |
-| Exit multiselection / close find | Esc | Esc |
-| Source / split / preview | Cmd+1 / 2 / 3 | Ctrl+1 / 2 / 3 |
-| Toggle sidebar | Cmd+B | Ctrl+B |
-| Settings | Cmd+, | Ctrl+, |
-| Export HTML | Cmd+Shift+E | Ctrl+Shift+E |
-
-## Technology
-
-ZMark uses **Rust** and **GPUI** for the desktop app, **pulldown-cmark** for Markdown parsing, **syntect** for code highlighting, and **rusty-mermaid** for diagram rendering. Local images use the Rust `image` crate; large opaque PNG/JPEG previews on macOS use native ImageIO thumbnail decoding. Preview diagrams are rasterized for their display size, and unused textures are released. See the [memory audit](https://github.com/2716190547/zmark/blob/dev/docs/plans/theme-selection-and-memory-audit.md) for measurements and remaining limits; memory use depends on the document, media, and window size.
+For full developer documentation, architecture diagrams, and source builds, visit the main **[ZMark Source Repository](https://github.com/2716190547/zmark)**.
