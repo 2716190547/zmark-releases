@@ -18,9 +18,9 @@
 
 ## Download and Install
 
-**Current release: `v0.2.10`** · [Release Notes](https://github.com/2716190547/zmark/blob/master/docs/releases/v0.2.10.md) · [Tagged Source `309d05e`](https://github.com/2716190547/zmark/tree/309d05eb6b934c0d94430d40ca42f71525a798c3)
+**Current release: `v0.2.11`** · [Release Notes](https://github.com/2716190547/zmark/blob/master/docs/releases/v0.2.11.md) · [Tagged Source `ec5101d`](https://github.com/2716190547/zmark/tree/ec5101d737f068bbfc51a43f36606b64a4c8b38d)
 
-Download installers directly from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.10). Users in mainland China can also download the macOS ZIP, Windows installer, and signed update manifests via the [Gitee Mirror](https://gitee.com/zeng_sc/zmark-releases/releases) (DMG and Linux packages are hosted on GitHub).
+Download installers directly from [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.11). Users in mainland China can also download the macOS ZIP, Windows installer, and signed update manifests via the [Gitee Mirror](https://gitee.com/zeng_sc/zmark-releases/releases) (DMG and Linux packages are hosted on GitHub).
 
 | Platform | Architecture | Package | Install Instructions |
 | --- | --- | --- | --- |
@@ -37,8 +37,8 @@ Download installers directly from [GitHub Releases](https://github.com/271619054
 
 - **Writing & Sync Scroll**: Switch seamlessly between **Source** (`Cmd+1` / `Ctrl+1`), **Split** (`Cmd+2` / `Ctrl+2`), and **Preview** (`Cmd+3` / `Ctrl+3`), with block-aligned smooth synchronized scrolling and hover scrollbars.
 - **Workspace & Document Outline**: Open the sidebar with `Cmd+Shift+B` / `Ctrl+Shift+B` and toggle **Files ↔ Outline** with `Cmd+Shift+O` / `Ctrl+Shift+O`. Drop folders or Markdown files directly into the window, search by filename, undo sidebar removals (`Cmd+Option+Z` / `Ctrl+Alt+Z`), or double-click names to rename inline.
-- **Markdown, Diagrams & Media**: Adaptive GFM tables, interactive task lists, multi-language code syntax highlighting with one-click copy, native local `rusty-mermaid` SVG diagrams, local image previews (PNG/JPEG/GIF/WebP/SVG), and interactive HiDPI Lightbox zoom.
-- **Themes & Customizable Shortcuts**: Press `Cmd+,` / `Ctrl+,` for Settings — 7 light/dark palettes, a 19-token Custom Theme Editor, 10 UI languages, and customizable keyboard shortcuts (`Backspace` to unbind, live conflict detection).
+- **Markdown, Diagrams & Media**: `[toc]` clickable table-of-contents blocks, lightweight `<br>` line breaks, adaptive GFM tables, interactive task lists, multi-language code syntax highlighting with one-click copy, native local `rusty-mermaid` SVG diagrams, local image & SVG previews (`zmark-asset://`, PNG/JPEG/GIF/WebP/SVG), and interactive HiDPI Lightbox zoom.
+- **Themes & Customizable Shortcuts**: Press `Cmd+,` / `Ctrl+,` for Settings — 7 light/dark palettes, a 19-token Custom Theme Editor, 10 UI languages, and customizable keyboard shortcuts with edit indicators (`Backspace` to unbind, system-level neutral selection tint, live conflict detection).
 - **Standalone HTML Export**: Export clean formatted HTML with `Cmd+Shift+E` / `Ctrl+Shift+E`.
 
 For full developer documentation, architecture diagrams, and source builds, visit the main **[ZMark Source Repository](https://github.com/2716190547/zmark)**.

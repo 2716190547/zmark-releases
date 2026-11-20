@@ -18,9 +18,9 @@
 
 ## 下载与安装
 
-**当前最新版本：`v0.2.10`** · [版本更新说明](https://github.com/2716190547/zmark/blob/master/docs/releases/v0.2.10.md) · [对应源码 `309d05e`](https://github.com/2716190547/zmark/tree/309d05eb6b934c0d94430d40ca42f71525a798c3)
+**当前最新版本：`v0.2.11`** · [版本更新说明](https://github.com/2716190547/zmark/blob/master/docs/releases/v0.2.11.md) · [对应源码 `ec5101d`](https://github.com/2716190547/zmark/tree/ec5101d737f068bbfc51a43f36606b64a4c8b38d)
 
-可从 [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.10) 下载对应系统安装包；国内网络也可通过 [Gitee 发行镜像](https://gitee.com/zeng_sc/zmark-releases/releases) 获取 macOS ZIP、Windows 安装包与签名更新清单（DMG 与 Linux 安装包请前往 GitHub 下载）。
+可从 [GitHub Releases](https://github.com/2716190547/zmark-releases/releases/tag/v0.2.11) 下载对应系统安装包；国内网络也可通过 [Gitee 发行镜像](https://gitee.com/zeng_sc/zmark-releases/releases) 获取 macOS ZIP、Windows 安装包与签名更新清单（DMG 与 Linux 安装包请前往 GitHub 下载）。
 
 | 平台 | 架构 | 安装包格式 | 安装说明 |
 | --- | --- | --- | --- |
@@ -37,8 +37,8 @@
 
 - **三种视图与同步滚动**：按 `Cmd+1 / 2 / 3`（Windows/Linux 为 `Ctrl+1 / 2 / 3`）瞬间切换**源码 / 分屏 / 预览**；分屏支持按块精准对齐和平滑同步滚动，搭配跨平台悬停滚动条。
 - **侧栏工作区与大纲**：按 `Cmd+Shift+B`（`Ctrl+Shift+B`）展开/收起侧栏，按 `Cmd+Shift+O`（`Ctrl+Shift+O`）快速互切**文件夹与大纲**；支持拖入文件夹与多选批量管理、5 秒撤销移除（`Cmd+Option+Z` / `Ctrl+Alt+Z`）与双击重命名。
-- **Markdown 与图表渲染**：支持 GFM 表格、任务清单、多语言代码高亮一键复制、`rusty-mermaid` 原生矢量流程图、本地位图与 SVG 预览，以及点击进入 HiDPI 灯箱放大检视。
-- **主题配色与键位自定义**：按 `Cmd+,`（`Ctrl+,`）打开设置，支持 7 套明暗调色板、19 项完整颜色自定义、10 种界面语言及快捷键录制重设。
+- **Markdown 与图表渲染**：支持 `[toc]` 正文可点击目录、`<br>` 轻量化换行、自适应列宽 GFM 表格、任务清单、多语言代码高亮一键复制、`rusty-mermaid` 原生矢量流程图、本地位图与内置矢量 SVG（`zmark-asset://`）预览，以及点击进入 HiDPI 灯箱放大检视。
+- **主题配色与键位自定义**：按 `Cmd+,`（`Ctrl+,`）打开设置，支持 7 套明暗调色板、19 项完整颜色自定义、10 种界面语言及 17 项受管快捷键录制重设（可编辑提示、`Backspace` 清空与系统级中性选中色）。
 - **导出 HTML**：按 `Cmd+Shift+E`（`Ctrl+Shift+E`）一键导出排版美观的 HTML 文档。
 
 完整的源码构建、架构说明与开发指南，请访问主仓库 **[ZMark GitHub 源码仓库](https://github.com/2716190547/zmark)**。
