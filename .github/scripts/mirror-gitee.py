@@ -29,7 +29,7 @@ def upload_asset(release_id, path):
     config = ''.join(f'header = {json.dumps(f"{name}: {value}")}\n' for name, value in HEADERS.items())
     result = subprocess.run([
         'curl', '--silent', '--show-error', '--fail-with-body',
-        '--connect-timeout', '20', '--max-time', '300', '--config', '-',
+        '--connect-timeout', '20', '--max-time', '900', '--config', '-',
         '--form', f'file=@{path};type=application/octet-stream',
         f'{TARGET}/releases/{release_id}/attach_files',
     ], input=config, text=True, capture_output=True, check=True)
